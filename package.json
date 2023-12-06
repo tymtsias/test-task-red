@@ -11,7 +11,9 @@
     "allure:report": "npm run clear:allure:report && allure generate allure-results --clean -o allure-report",
     "trigger:allure": "npm run allure:report",
     "regression:e2e": "npx cypress run --env allure=true --browser chrome --spec ./cypress/e2e/*.cy.js",
-    "cy:regression": "npm run clear:allure:results && npm run regression:e2e && npm run trigger:allure"
+    "cy:regression": "npm run clear:allure:results && npm run regression:e2e && npm run trigger:allure",
+    "syregression:e2e": "npx synpress run -cf synpress.config.js run --env allure=true --browser chrome --spec ./cypress/e2e/*.cy.js",
+    "sy:regression": "npm run clear:allure:results && npm run syregression:e2e && npm run trigger:allure"
   },
   "author": "tymtsias",
   "license": "ISC",
