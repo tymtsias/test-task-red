@@ -1,0 +1,35 @@
+name: Cypress E2E Tests
+on:  
+    pull_request:
+        branches:
+            - main
+jobs:
+  test:
+      runs-on: ubuntu-latest
+      container:
+        image: cypress/browsers:node18.12.0-chrome103-ff107     
+      steps:
+      - name: Checkout repository        
+        uses: actions/checkout@v2
+      - name: Set up Node.js  
+        uses: actions/setup-node@v3
+        with:          
+          node-version: '14'
+      - name: Install dependencies
+        run: npm install
+      - name: Run Cypress tests
+        run: sy:regression     
+        continue-on-error: true
+      - name: Archive artifacts        
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:  
+            name: cypress-results
+            path: ./cypress/videos/
+              ./allure-results/
+      - name: Archive artifacts
+        if: always()        
+        uses: actions/upload-artifact@v2
+        with:          
+            name: allure-report
+            path: ./allure-report/
