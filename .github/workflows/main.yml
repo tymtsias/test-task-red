@@ -18,6 +18,10 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run Cypress tests
+        env:
+          NETWORK_NAME: ${{ secrets.NETWORK_NAME }}
+          SECRET_WORDS: ${{ secrets.SECRET_WORDS }}
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
         run: npm run sy:regression     
         continue-on-error: true
       - name: Archive artifacts        
