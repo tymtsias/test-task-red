@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run Cypress tests
-        run: sy:regression     
+        run: npm run sy:regression     
         continue-on-error: true
       - name: Archive artifacts        
         if: always()
