@@ -9,7 +9,7 @@ module.exports = defineConfig({
     },
     baseUrl: "https://zero.loans/",
     includeShadowDom: true,
-    defaultCommandTimeout: 7000,
+    defaultCommandTimeout: 11000,
     numTestsKeptInMemory: 0,
     chromeWebSecurity: false
   }
