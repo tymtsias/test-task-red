@@ -31,7 +31,7 @@ jobs:
           GH_USERNAME: ${{ secrets.GH_USERNAME }}
         run: |
             set +e
-            docker-compose —-env-file ./.env up --build --exit-code-from synpress
+            docker-compose --env-file ./docker.config up --build --exit-code-from synpress
             export TESTS_EXIT_CODE="$?"
         continue-on-error: true
       - name: Archive artifacts        
