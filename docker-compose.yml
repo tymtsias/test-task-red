@@ -16,8 +16,10 @@ services:
     entrypoint: []
     working_dir: /app
     command: >
-      bash -c 'echo -n "======> local noVNC URL: http://localhost:8080/vnc.html?autoconnect=true " & npx wait-on http://display:8080 & npm run syregression:e2e'
+      bash -c 'echo -n "======> local noVNC URL: http://localhost:8080/vnc.html?autoconnect=true " & npx wait-on http://display:8080 & npm run syregression:e2e ; cp /app/cypress/videos/ScenarionTests.cy.js.mp4 /var/data/video/ScenarionTests.cy.js.mp4'
     networks: [x11]
+    volumes:
+      - /home/tym/projects/test-task-red/cypress/videos/:/var/data/video/
 
   display:
     container_name: display
