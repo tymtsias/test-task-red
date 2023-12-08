@@ -12,7 +12,6 @@ export const testScenario = () => {
   selectors.loginButton().should("be.visible").click();
   selectors.metamaskButton().should("be.visible").click();
   cy.acceptMetamaskAccess().should("be.true", { timeout: 120000 });
-  cy.confirmMetamaskSignatureRequest().should("be.true");
   selectors.walletButton().should("be.visible").click();
   selectors.walletConnectionBadge().should("be.visible").and("have.text", "Connected");
 };
