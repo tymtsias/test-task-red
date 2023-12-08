@@ -26,14 +26,13 @@ jobs:
         continue-on-error: true
       - name: Archive artifacts        
         if: always()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:  
             name: cypress-results
-            path: /__w/test-task-red/test-task-red/cypress/videos/
-              ./allure-results/
+            path: /__w/test-task-red/test-task-red/cypress/videos/ScenarionTests.cy.js.mp4
       - name: Archive artifacts
         if: always()        
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:          
             name: allure-report
             path: ./allure-report/
