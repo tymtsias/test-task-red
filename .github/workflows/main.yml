@@ -11,6 +11,10 @@ jobs:
       steps:
       - name: Checkout repository        
         uses: actions/checkout@v2
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@8b122486cedac8393e77aa9734c3528886e4a1a8
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@dc7b9719a96d48369863986a06765841d7ea23f6
       - name: Set up Node.js  
         uses: actions/setup-node@v3
         with:          
@@ -19,12 +23,17 @@ jobs:
         run: npm install
       - name: Run Cypress tests
         env:
+          COMPOSE_DOCKER_CLI_BUILD: 1
+          DOCKER_BUILDKIT: 1
+          DOCKER_DEFAULT_PLATFORM: linux/amd64
           NETWORK_NAME: ${{ secrets.NETWORK_NAME }}
           SECRET_WORDS: ${{ secrets.SECRET_WORDS }}
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          GH_PAT: ${{ secrets.GH_PAT }}
+          GH_USERNAME: ${{ secrets.GH_USERNAME }}
         run: |
             set +e
-            npm run sy:regression
+            docker-compose —-env-file ./.env up --build --exit-code-from synpress
             export TESTS_EXIT_CODE="$?"
         continue-on-error: true
       - name: Archive artifacts        
