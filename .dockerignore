@@ -1,0 +1,7 @@
+﻿allure-results/
+allure-report/
+node_modules/
+screenshots/
+videos/
+.env
+ci.env
