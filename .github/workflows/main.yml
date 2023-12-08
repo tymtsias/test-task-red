@@ -19,9 +19,9 @@ jobs:
         run: npm install
       - name: Install Libva
         run: |
-            sudo add-apt-repository ppa:kisak/kisak-mesa
-            sudo apt update
-            sudo apt upgrade
+            add-apt-repository ppa:kisak/kisak-mesa
+            apt update
+            apt upgrade
       - name: Run Cypress tests
         env:
           NETWORK_NAME: ${{ secrets.NETWORK_NAME }}
