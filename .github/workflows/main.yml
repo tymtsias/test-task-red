@@ -22,7 +22,7 @@ jobs:
           NETWORK_NAME: ${{ secrets.NETWORK_NAME }}
           SECRET_WORDS: ${{ secrets.SECRET_WORDS }}
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-        run: 
+        run: |
             set +e
             npm run sy:regression
             export TESTS_EXIT_CODE="$?"
