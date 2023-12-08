@@ -22,7 +22,10 @@ jobs:
           NETWORK_NAME: ${{ secrets.NETWORK_NAME }}
           SECRET_WORDS: ${{ secrets.SECRET_WORDS }}
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-        run: npm run sy:regression     
+        run: 
+            set +e
+            npm run sy:regression
+            export TESTS_EXIT_CODE="$?"
         continue-on-error: true
       - name: Archive artifacts        
         if: always()
@@ -40,3 +43,6 @@ jobs:
         uses: actions/download-artifact@v3
         with:
             name: cypress-results
+      - name: Decide fail pull request or not
+        run:
+          exit TESTS_EXIT_CODE
