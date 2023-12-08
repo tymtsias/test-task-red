@@ -4,6 +4,7 @@
   "description": "",
   "main": "cypress.config.js",
   "scripts": {
+    "rimraf": "./node_modules/rimraf/bin.js",
     "debug:mode": "npx cypress open",
     "headless:mode": "npx cypress run --browser chrome",
     "clear:allure:results": "rimraf allure-results",
