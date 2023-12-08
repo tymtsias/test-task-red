@@ -16,9 +16,7 @@ jobs:
       - name: Set up Node.js  
         uses: actions/setup-node@v3
         with:          
-          node-version: '14'
-      - name: Install dependencies
-        run: npm install
+          node-version: '18'
       - name: Run Cypress tests
         env:
           COMPOSE_DOCKER_CLI_BUILD: 1
