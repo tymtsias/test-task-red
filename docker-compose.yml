@@ -23,7 +23,7 @@ services:
     container_name: display
     image: synthetixio/display:b2643097e891906524e52e7ee956260b20fa01fb-base
     environment: 
-      RUN_XTERM: no
+      RUN_XTERM: false
       DISPLAY_WIDTH: ${DISPLAY_WIDTH}
       DISPLAY_HEIGHT: ${DISPLAY_HEIGHT}
     ports: ['8080:8080']
