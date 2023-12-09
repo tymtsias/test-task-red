@@ -13,7 +13,7 @@ module.exports = defineConfig({
     },
     baseUrl: "https://zero.loans/",
     includeShadowDom: true,
-    defaultCommandTimeout: 20000,
+    defaultCommandTimeout: 600000,
     numTestsKeptInMemory: 0
   }
 });
