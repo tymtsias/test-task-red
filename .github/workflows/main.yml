@@ -14,12 +14,12 @@ jobs:
           VPN_LOGIN: ${{ secrets.VPN_LOGIN }}
           VPN_PASS: ${{ secrets.VPN_PASS }}
         run: |
-            apt install -y wget 
+            sudo apt install -y wget 
             wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.3_all.deb
-            apt install ./protonvpn-stable-release_1.0.3_all.deb
-            apt update
-            apt install -y protonvpn-cli
-            apt install expect
+            sudo apt install ./protonvpn-stable-release_1.0.3_all.deb
+            sudo apt update
+            sudo apt install -y protonvpn-cli
+            sudo apt install expect
             expect loginVPNscript
             protonvpn-cli c --cc JP
       - name: Set up QEMU
