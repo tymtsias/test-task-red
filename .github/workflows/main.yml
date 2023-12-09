@@ -19,6 +19,7 @@ jobs:
             sudo apt install ./protonvpn-stable-release_1.0.3_all.deb
             sudo apt update
             sudo apt install dbus
+            dbus-daemon --system
             sudo apt install -y protonvpn-cli
             sudo apt install expect
             expect loginVPNscript
