@@ -1,6 +1,0 @@
-#!/usr/bin/expect
-
-spawn protonvpn-cli login $env(VPN_LOGIN)
-expect "Enter your Proton VPN password:"
-send -- "$env(VPN_PASS)\r"
-interact

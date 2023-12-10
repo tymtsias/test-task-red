@@ -16,7 +16,11 @@ services:
     entrypoint: []
     working_dir: /app
     command: >
-      bash -c 'set -o xtrace; echo -n "======> local noVNC URL: http://localhost:8080/vnc.html?autoconnect=true " & npx wait-on http://display:8080 & npm run syregression:e2e ; cp /app/cypress/videos/ScenarionTests.cy.js.mp4 /var/data/video/ScenarionTests.cy.js.mp4'
+      bash -c 'set -o xtrace;
+      echo -n "======> local noVNC URL: http://localhost:8080/vnc.html?autoconnect=true ";
+      npx wait-on http://display:8080; 
+      npm run syregression:e2e; 
+      cp /app/cypress/videos/ScenarionTests.cy.js.mp4 /var/data/video/ScenarionTests.cy.js.mp4'
     networks: [x11]
     volumes:
       - /__w/test-task-red/test-task-red/cypress/videos/:/var/data/video/
